@@ -13,17 +13,24 @@
   }
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-}
-
 .App-link {
   color: rgb(112, 76, 182);
+}
+
+header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: clamp(100px, 200px, 25%);
+  background-color: lightblue;
+  font-size: calc(10px + 2vmin);
+  margin-bottom: 2rem;
+}
+
+main{
+  margin: 0 auto;
+  width: clamp(200px, 60%, 1000px);
 }
 
 @keyframes App-logo-float {
@@ -35,5 +42,11 @@
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  main{
+    width: 85%;
   }
 }

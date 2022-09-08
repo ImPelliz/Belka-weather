@@ -1,0 +1,43 @@
+#container{
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    justify-items: stretch;
+    align-items: center;
+    outline: 1px solid #b7b7b7;
+    border-radius: 4px;
+    padding: 5px 15px;
+    height: 50px;
+}
+#container.error{
+    background-color: lightgray;
+}
+#name{
+    text-align: left;
+    font-weight: bold;
+    color: #3b3b3b;
+    font-size: 1.2rem;
+}
+#forecast{
+    text-align: left;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+#container.error #forecast span{
+    color:red;
+}
+#buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+#buttons button{
+    border-radius: 5px;
+    display: flex;
+    align-content: stretch;
+    padding: 5px;
+}
+#buttons button:hover{
+    background-color: lightgrey;
+    transition: 0.2s;
+}

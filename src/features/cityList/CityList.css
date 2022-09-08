@@ -1,0 +1,6 @@
+#listView{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem
+}
