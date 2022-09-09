@@ -44,6 +44,7 @@ export default function CityView({ city } : propsModel ) {
             setError(true);
             setDescription("Connection error");
             console.log(err);
+            setLoading(false);
         })
     }
     function disable(){

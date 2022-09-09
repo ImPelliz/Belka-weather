@@ -9,7 +9,7 @@
     height: 50px;
 }
 #container.error{
-    background-color: lightgray;
+    background-color: #ffe9e9;
 }
 #name{
     text-align: left;
