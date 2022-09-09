@@ -18,10 +18,10 @@ export default function CityView({ city } : propsModel ) {
     const dispatch = useAppDispatch();
     const [description, setDescription] = useState('loading...');
     const [icon, setIcon] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [requestError, setError] = useState(false);
-    let currentForecast: ApiResponseModel;
-    let loaded = false;
+    const [loading, setLoading] = useState(false);          // Signals the request is still loading
+    const [requestError, setError] = useState(false);       // Signals there has been an error in the request
+    let currentForecast: ApiResponseModel;                           // Response object
+    let loaded = false;                                              // Signals wether a request has already been made
     function loadWeather (){
         if(loading) return;
         setLoading(true);
