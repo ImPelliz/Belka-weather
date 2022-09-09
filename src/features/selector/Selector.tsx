@@ -14,7 +14,6 @@ export default function Selector() {
     return (
         <select id='cityInput' defaultValue='' onChange={handleSelection} >
             <option value='' disabled>Select a city to add</option>
-            <option value='res'>Reset</option>
             {list}
         </select>
     );

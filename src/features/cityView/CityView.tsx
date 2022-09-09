@@ -51,6 +51,7 @@ export default function CityView({ city } : propsModel ) {
     }
     useEffect(() => {
         if(currentForecast === undefined && !loaded) loadWeather();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
         <div id='container' className={requestError?"error":""}>

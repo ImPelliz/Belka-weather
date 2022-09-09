@@ -61,7 +61,7 @@ export const citiesSlice = createSlice({
 
 export const { enableCity, disableCity, reset, loadCities } = citiesSlice.actions;
 
-export const enabledCities = (state: RootState) => state.citiesReducer.enabled;
-export const disabledCities = (state: RootState) => state.citiesReducer.disabled;
+export const enabledCities = (state: RootState) => state.persistedReducer.enabled;
+export const disabledCities = (state: RootState) => state.persistedReducer.disabled;
 
 export default citiesSlice.reducer;
