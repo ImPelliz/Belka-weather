@@ -14,13 +14,13 @@ const initialState: selectionState = {
 const compareCities = (c1: any, c2: any) => c1.name.localeCompare(c2.name);
 
 // Generic function to move one city from an array to another given its id
-function moveCity(from: CityModel[], to: CityModel[], id: number): [CityModel[], CityModel[]] | [undefined, undefined] {
+function moveCity(from: CityModel[], to: CityModel[], id: number): boolean {
     let index = from.findIndex((curr) => curr._id === id);
-    if (index < 0) return [undefined, undefined];
+    if (index < 0) return false;
     else {
         to.unshift(from[index]);
         from.splice(index, 1);
-        return [from, to];
+        return true;
     }
 }
 export const citiesSlice = createSlice({
@@ -28,26 +28,23 @@ export const citiesSlice = createSlice({
     initialState,
     reducers: {
         enableCity: (state, action: PayloadAction<number>) => {
-            const cityArrays = moveCity(state.disabled, state.enabled, Number(action.payload));
-            if (cityArrays[0] === undefined) {
+            const moveRes = moveCity(state.disabled, state.enabled, Number(action.payload));
+            if (!moveRes) {
                 alert('Error');
                 console.log('Enabled city not found');
                 console.log('id: ', action.payload);
                 return;
-            } else {
-                [state.disabled, state.enabled] = cityArrays;
             }
         },
         disableCity: (state, action: PayloadAction<number>) => {
-            const [enabled, disabled] = moveCity(state.enabled, state.disabled, Number(action.payload));
-            if (enabled === undefined) {
+            const moveRes = moveCity(state.enabled, state.disabled, Number(action.payload));
+            if (!moveRes) {
                 alert('Error');
                 console.log('Enabled city not found');
                 console.log('id: ', action.payload);
                 return;
             } else {
-                [state.enabled, state.disabled] = [enabled, disabled?.sort(compareCities)];     // Sort to have selector items in alphabetical order
-                                                                                                // (could use a binary search)
+                state.disabled.sort(compareCities);
             }
         },
         reset: (state) => {

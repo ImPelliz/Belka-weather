@@ -22,6 +22,8 @@ export default function CityView({ city } : propsModel ) {
     const [requestError, setError] = useState(false);       // Signals there has been an error in the request
     let currentForecast: ApiResponseModel;                           // Response object
     let loaded = false;                                              // Signals wether a request has already been made
+    
+
     function loadWeather (){
         if(loading) return;
         setLoading(true);
